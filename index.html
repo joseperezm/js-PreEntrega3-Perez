@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Grados en Jiu-Jitsu Basileño</title>
+  <style>
+    .container {
+      width: 400px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    input[type="text"], input[type="number"] {
+      padding: 8px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin-bottom: 10px;
+    }
+
+    #resultado {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #detalle {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>BJJ CALCULATOR</h1>
+    <button id="botonLogout" style="display: none;">Cerrar sesión - <span id="nombreUsuario"></span></button>
+    <form id="formulario">
+      <input type="text" name="nombre" placeholder="Nombre" required>
+      <select name="grado" required>
+        <option value="" disabled selected>Selecciona tu grado actual</option>
+        <option value="blanco">Blanco</option>
+        <option value="azul">Azul</option>
+        <option value="purpura">Purpura</option>
+        <option value="cafe">Cafe</option>
+        <option value="negro">Negro</option>
+      </select>
+      <input type="number" name="años" placeholder="Años entrenando" required>
+      <button type="submit">Calcular</button>
+    </form>
+    <div id="resultado"></div>
+    <input type="text" id="busquedaGrado" placeholder="Buscar grado">
+    <button id="botonBuscar">Buscar</button>
+    <div id="detalle"></div>
+    <div><h3>Historial de búsqueda</h3></div>
+    <div id="ultimosUsuarios"></div>
+    <div><button id="eliminarHistorial">Eliminar Historial</button></div>
+  </div>
+  <script src="./main.js"></script>
+  <script src="./historial.js"></script>
+</body>
+</html>
