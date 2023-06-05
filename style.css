@@ -6,3 +6,24 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.container {
+  width: 400px;
+  margin: 50px auto;
+  text-align: center;
+}
+input[type="text"], input[type="number"] {
+  padding: 8px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+button {
+  padding: 8px 16px;
+  margin-bottom: 10px;
+}
+#resultado {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#detalle {
+  font-style: italic;
+}
