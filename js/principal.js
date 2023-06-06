@@ -1,5 +1,6 @@
 // Definir un objeto JSON con la información de los grados
 const gradosJSON = `[
+    { "nombre": "Error", "descripcion": "¡Por favor ingresa algún grado!" },
     { "nombre": "blanco", "descripcion": "Grado inicial en el Jiu-Jitsu Basileño: Fundamentos básicos y dedicación en el aprendizaje y práctica regular del BJJ." },
     { "nombre": "azul", "descripcion": "Grado básico en el Jiu-Jitsu Basileño: Conocimiento sólido de las técnicas fundamentales, capacidad para aplicarlas en situaciones de combate y experiencia en la participación en competiciones. Mínimo 2 años de entrenamiento." },
     { "nombre": "purpura", "descripcion": "Grado intermedio en el Jiu-Jitsu Basileño: Dominio de una amplia variedad de técnicas, habilidad para adaptarse a diferentes estilos de lucha y una comprensión profunda de las estrategias del BJJ. Mínimo 5 años de entrenamiento." },
@@ -159,8 +160,8 @@ botonBuscar.addEventListener("click", function () {
     );
   
     if (gradoEncontrado) {
-      detalleContainer.textContent = `Grado encontrado:\n${gradoEncontrado.nombre}: ${gradoEncontrado.descripcion}`;
+      detalleContainer.textContent = `\n${gradoEncontrado.nombre}: ${gradoEncontrado.descripcion}`;
     } else {
-      detalleContainer.textContent = "No se encontró ningún grado que coincida con la búsqueda. Grados disponibles: Blanco, Azul, Purpura, Cafe, Negro y Coral";
+      detalleContainer.textContent = "No se encontró ningún grado que coincida con la búsqueda. Grados disponibles: Blanco, Azul, Purpura, Cafe, Negro y Coral.";
     }
   }
