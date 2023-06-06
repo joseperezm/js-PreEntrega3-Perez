@@ -21,13 +21,18 @@ function mostrarUltimosUsuarios() {
   // Limpiar el contenedor antes de mostrar los usuarios
   ultimosUsuariosContainer.innerHTML = "";
 
-  // Mostrar los últimos 10 usuarios en orden inverso (los más recientes primero)
-  const cantidadUsuarios = Math.min(ultimosUsuarios.length, 10);
-  for (let i = cantidadUsuarios - 1; i >= 0; i--) {
-    const usuario = ultimosUsuarios[i];
-    const usuarioElemento = document.createElement("div");
-    usuarioElemento.textContent = `Nombre: ${usuario.nombre}, Grado: ${usuario.grado}, Años de entrenamiento: ${usuario.años}`;
-    ultimosUsuariosContainer.appendChild(usuarioElemento);
+  if (ultimosUsuarios.length === 0) {
+    // Mostrar el mensaje de historial vacío
+    ultimosUsuariosContainer.textContent = "Historial vacío";
+  } else {
+    // Mostrar los últimos 30 usuarios en orden inverso (los más recientes primero)
+    const cantidadUsuarios = Math.min(ultimosUsuarios.length, 30);
+    for (let i = cantidadUsuarios - 1; i >= 0; i--) {
+      const usuario = ultimosUsuarios[i];
+      const usuarioElemento = document.createElement("div");
+      usuarioElemento.textContent = `Nombre: ${usuario.nombre}, Grado: ${usuario.grado}, Años entrenando: ${usuario.años}`;
+      ultimosUsuariosContainer.appendChild(usuarioElemento);
+    }
   }
 }
 
@@ -75,13 +80,19 @@ const historialContainer = document.getElementById("historial");
 
 // Función para mostrar el historial de usuarios
 function mostrarHistorial() {
-  for (let i = localStorage.length - 1; i >= 0; i--) {
-    const key = localStorage.key(i);
-    if (key.startsWith("usuario-")) {
-      const usuarioJSON = localStorage.getItem(key);
-      const usuario = JSON.parse(usuarioJSON);
-      const usuarioElement = document.createElement("li");
-      usuarioElement.textContent = `${usuario.nombre} - ${usuario.grado} - ${usuario.años} años`;
+  if (localStorage.length === 0) {
+    // Mostrar el mensaje de historial vacío
+    historialContainer.textContent = "Historial vacío";
+  } else {
+    for (let i = localStorage.length - 1; i >= 0; i--) {
+      const key = localStorage.key(i);
+      if (key.startsWith("usuario-")) {
+        const usuarioJSON = localStorage.getItem(key);
+        const usuario = JSON.parse(usuarioJSON);
+        const usuarioElement = document.createElement("li");
+        usuarioElement.textContent = `${usuario.nombre} - ${usuario.grado} - ${usuario.años} años`;
+        historialContainer.appendChild(usuarioElement);
+      }
     }
   }
 }
