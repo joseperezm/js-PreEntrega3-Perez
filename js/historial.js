@@ -74,30 +74,3 @@ function eliminarHistorial() {
   }
   mostrarUltimosUsuarios();
 }
-
-// Obtener referencia al contenedor del historial
-const historialContainer = document.getElementById("historial");
-
-// Función para mostrar el historial de usuarios
-function mostrarHistorial() {
-  if (localStorage.length === 0) {
-    // Mostrar el mensaje de historial vacío
-    historialContainer.textContent = "Historial vacío";
-  } else {
-    for (let i = localStorage.length - 1; i >= 0; i--) {
-      const key = localStorage.key(i);
-      if (key.startsWith("usuario-")) {
-        const usuarioJSON = localStorage.getItem(key);
-        const usuario = JSON.parse(usuarioJSON);
-        const usuarioElement = document.createElement("li");
-        usuarioElement.textContent = `${usuario.nombre} - ${usuario.grado} - ${usuario.años} años`;
-        historialContainer.appendChild(usuarioElement);
-      }
-    }
-  }
-}
-
-// Mostrar historial al cargar la página
-window.addEventListener("load", function () {
-  mostrarHistorial();
-});
